@@ -1,13 +1,13 @@
 * {
     box-sizing: border-box;
-    /* width: max-content; */
+   
 }
 
 body {
-   overflow: hidden;
-    width:100%;
+    overflow: hidden;
+    width: 100%;
     margin: 0;
-    /* zoom: 2.5; */
+
 }
 
 .page-actions-cont {
@@ -27,7 +27,7 @@ body {
     font-size: 6px;
     outline: none;
     border: none;
-    
+
 }
 
 .cellprop-actions-cont input {
@@ -49,7 +49,7 @@ body {
 }
 
 .cellprop-actions-cont .material-icons {
- 
+
     margin: 1px;
     font-size: 8px;
     color: rgba(255, 255, 255, 1);
@@ -57,7 +57,7 @@ body {
 }
 
 .sheet-actions-cont .material-icons {
-    /* margin-left: 2px; */
+
     margin: 1px;
     font-size: 5px;
     color: rgba(255, 255, 255, 1);
@@ -89,7 +89,7 @@ body {
     font-size: 7px;
 
     height: 90%;
-    /* width:3rem; */
+    
     text-decoration: underline;
     background-color: #f5f6fa;
     display: relative;
@@ -106,7 +106,7 @@ body {
 }
 
 .formula-actions-cont .address-bar {
-    /* margin: 0; */
+
     margin-top: 2px;
     margin-left: 7px;
     height: 0.4rem;
@@ -124,7 +124,7 @@ body {
 }
 
 .formula-actions-cont .formula-bar {
-    /* margin: 0; */
+
     margin-top: 2px;
     margin-left: 7px;
     font-size: 5px;
@@ -136,41 +136,46 @@ body {
 
 
 .dummy-box {
-   
+
     background-color: #f5f6fa;
-    top: 0px;
-    z-index: 100;
-    display: flex;
-    /* scroll-behavior: auto; */
-    position: sticky;
-    height: 9px;
-    width: 9px;
+ 
+    position: fixed;
+    top: 29px;
+    left: 0px;
+    z-index: 5;
+   
+ 
+
+    height: 9.4px;
+    width: 9.7px;
 }
 
 .row-name-container {
-    
-    position: relative;
+    position: sticky;
+    z-index: 4;
     background-color: #f5f6fa;
     display: flex;
     flex-direction: column;
-    /* top: 9px; */
+    
     left: 0px;
+    top:40px;
     width: fit-content;
-    z-index: 90;
-    /* height: 800px; */
+
 
 }
+
 .row-name-container .col-boxes {
-    /* to contain numbering */
+
     text-align: center;
-  
+
     font-size: 5px;
     color: #a4b0be;
-    padding: 6%;
-   
+
     background-color: #f5f6fa;
     height: 10px;
-    width: 9px;
+    width: 10px;
+
+
     border: 0.1px solid #ced6e0;
 }
 
@@ -184,56 +189,60 @@ body {
 }
 
 .col-name-container {
- /* a b c d  */
-    /* position: relative; */
+    /* a b c d  */
+    position: sticky;
+    top: 0.2px;
+    left:2px;
+
     display: flex;
     flex-direction: row;
-    z-index: 0;
-    top:0px;
-    position: sticky;
+    z-index: 4;
+
+
+
     background-color: #f5f6fa;
 }
 
 .col-name-container .row-boxes {
     /* a b c d  */
-    width: 30px;  
+    width: 30px;
     text-align: center;
-   padding-top: 2px;
+    padding-top: 2px;
     align-items: center;
     font-size: 5px;
     color: #a4b0be;
-    height: 9px;
-    position: static;
+    height: 10px;
+
     background-color: #f5f6fa;
 
     border: 0.1px solid #ced6e0;
 }
+
 .grid-cont {
- 
+
     height: calc(100vh - 2.4rem);
-    overflow:scroll;
-   
-    width:100vw;
+    overflow: scroll;
+
+    width: 100vw;
     height: calc(100vh- 2.6rem);
     top: 0px;
-  
+
     position: relative;
- 
+
 }
 
 
 .cells-container {
     /* holds the whole table */
-    overflow:scroll;
-    overflow-x: scroll;
+  
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 0;
+    top: 0px;
     left: 9px;
-  
-    
-   
+
+
+
     background-color: #f5f6fa;
 
 }
@@ -263,5 +272,5 @@ body {
     height: 1;
     padding-left: 0;
     background-color: #f5f6fa;
-    /* position: relative; */
+
 }
