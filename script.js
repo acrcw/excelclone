@@ -29,6 +29,8 @@
             let rowcell = document.createElement("div");
             rowcell.setAttribute("class", "row-cell");
             rowcell.setAttribute("id", `${String.fromCharCode(65 + y)}${x + 1}`);
+            rowcell.setAttribute("contenteditable","true");
+            rowcell.setAttribute("spellcheck","false")
             rowcell.addEventListener("click", (e) => {
                 addressbar.value = e.target.getAttribute("id");
             })

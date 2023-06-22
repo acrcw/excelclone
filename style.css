@@ -253,8 +253,10 @@ body {
     height: 10px;
     text-align: center;
     font-size: 5px;
-    color: rgb(164, 176, 190);
-
+    color: #2d3436;
+    outline: none;
+    text-align: center;
+    font-size: 7px;
     background-color: rgb(245, 246, 250);
     border: 0.1px solid rgb(206, 214, 224);
 }
