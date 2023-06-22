@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.0">
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,55 +14,54 @@
 
 <body>
     <div class="header">
-    <div class="page-actions-cont">
-        <div class="page-action">Home</div>
-        <div class="page-action">File</div>
-        <div class="page-action">Insert</div>
-        <div class="page-action">Layout</div>
-        <div class="page-action">Help</div>
-    </div>
-    <div class="cellprop-actions-cont">
-        <!-- icons container -->
-        <span class="material-icons">content_copy</span>
-        <span class="material-icons">content_paste</span>
-        <span class="material-icons">content_cut</span>
-        <select class="font-family-prop" id="font-family-prop">
-            <option value="Monospace">Monospace</option>
-            <option value="Sans-Serif">Sans-Serif</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="Cursive">Cursive</option>
-        </select>
-        <input type="number" class="font-size-prop">
-        <span class="material-icons">format_bold</span>
-        <span class="material-icons">format_italic</span>
-        <span class="material-icons">format_underlined</span>
-        <span class="material-icons">format_align_left</span>
-        <span class="material-icons">format_align_center</span>
-        <span class="material-icons">format_align_right</span>
-        <!-- icons container -->
-    </div>
-    <div class="formula-actions-cont">
-        <!-- // adress bar -->
+        <div class="page-actions-cont">
+            <div class="page-action">Home</div>
+            <div class="page-action">File</div>
+            <div class="page-action">Insert</div>
+            <div class="page-action">Layout</div>
+            <div class="page-action">Help</div>
+        </div>
+        <div class="cellprop-actions-cont">
+            <!-- icons container -->
+            <span class="material-icons">content_copy</span>
+            <span class="material-icons">content_paste</span>
+            <span class="material-icons">content_cut</span>
+            <select class="font-family-prop" id="font-family-prop">
+                <option value="Monospace">Monospace</option>
+                <option value="Sans-Serif">Sans-Serif</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Cursive">Cursive</option>
+            </select>
+            <input type="number" class="font-size-prop">
+            <span class="material-icons">format_bold</span>
+            <span class="material-icons">format_italic</span>
+            <span class="material-icons">format_underlined</span>
+            <span class="material-icons">format_align_left</span>
+            <span class="material-icons">format_align_center</span>
+            <span class="material-icons">format_align_right</span>
+            <!-- icons container -->
+        </div>
+        <div class="formula-actions-cont">
+            <!-- // adress bar -->
 
-        <input type="text" readonly class="address-bar">
-        <img width="5" height="5" src="https://img.icons8.com/ios/50/formula-fx.png" alt="formula-fx" />
-        <input type="text" class="formula-bar">
-        <!-- formula bar -->
+            <input type="text" readonly class="address-bar" id="address-bar">
+            <img width="5" height="5" src="https://img.icons8.com/ios/50/formula-fx.png" alt="formula-fx" />
+            <input type="text" class="formula-bar">
+            <!-- formula bar -->
+        </div>
     </div>
-</div>
     <div class="grid-cont">
         <!-- grid code here -->
-        <!-- <div class="dummy-box"></div> -->
-        <div class="row-name-container"> 
-            <div class="dummy-box"></div>
-          
+       
+        <div class="dummy-box"></div>  
+         <div class="row-name-container"></div> 
+       
+        <div class="cells-container">
+            <div class="col-name-container"></div>
+
         </div>
-        <div class="col-name-container">
-           
-        </div>
-        <div class="sheet-content"></div>
     </div>
-    <div class="sheet-actions-cont">
+    <div class="sheet-actions-cont"> 
         <!-- footer section -->
         <span class="material-icons">post_add</span>
         <div class="sheets-folder-cont">
