@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-   
+
 }
 
 body {
@@ -50,9 +50,9 @@ body {
 }
 
 .cellprop-actions-cont .material-icons {
-
+    cursor:pointer;
     margin: 1rem;
-    font-size:  1.2rem;
+    font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
     display: flex;
 }
@@ -146,13 +146,13 @@ body {
 
     background-color: #f5f6fa;
     /* background-color: red; */
- 
+
     position: fixed;
     top: 6rem;
     left: 0rem;
     z-index: 5;
-   
- 
+
+
 
     height: 2rem;
     width: 2rem;
@@ -164,9 +164,9 @@ body {
     background-color: #f5f6fa;
     display: flex;
     flex-direction: column;
-    
-    left:0rem;
-    top:26rem;
+
+    left: 0rem;
+    top: 26rem;
     width: 2rem;
 
 
@@ -202,7 +202,7 @@ body {
     /* a b c d  */
     position: sticky;
     top: 0.2px;
-    left:2px;
+    left: 2px;
 
     display: flex;
     flex-direction: row;
@@ -239,7 +239,7 @@ body {
     width: 100vw;
     height: calc(100vh - 7.6rem);
     top: 0rem;
-    left:0rem;
+    left: 0rem;
 
 
 }
@@ -247,7 +247,7 @@ body {
 
 .cells-container {
     /* holds the whole table */
-   
+
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -264,13 +264,13 @@ body {
     /* its cell itself */
     width: 6rem;
     height: 2rem;
-    text-align: center;
-    font-family: 'Quicksand', sans-serif;
+    /* text-align: center; */
+    /* font-family: 'Quicksand', sans-serif; */
     color: #2d3436;
-    
+
     outline: none;
-    text-align: justify;
-    font-size: 1.5rem;
+    /* text-align: justify; */
+    font-size: 24x;
     background-color: rgb(245, 246, 250);
     border: 0.1px solid rgb(206, 214, 224);
 }
@@ -280,7 +280,7 @@ body {
 
     background-color: #f5f6fa;
 
-    text-align: center;
+    /* text-align: center; */
     display: flex;
     flex-direction: row;
     /* font-size: 5px; */
@@ -289,4 +289,16 @@ body {
     /* padding-left: 0; */
     background-color: #f5f6fa;
 
+}
+.color-prop
+{
+    position: relative;
+}
+.color-prop >input{
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
 }

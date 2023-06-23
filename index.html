@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+        <!-- for google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;1,100&family=Amatic+SC&family=Architects+Daughter&family=Caveat&family=Comforter&family=Dancing+Script:wght@400;700&family=Gloria+Hallelujah&family=Gruppo&family=IBM+Plex+Mono:ital,wght@0,100;1,100&family=Inconsolata:wght@200;300&family=Indie+Flower&family=Kaushan+Script&family=Lobster&family=Marck+Script&family=Montserrat:ital,wght@0,100;0,200;1,100;1,200&family=Mr+Dafoe&family=Nunito:ital,wght@0,200;1,200&family=Orbitron&family=Oswald:wght@200;300&family=Parisienne&family=Poiret+One&family=Quicksand:wght@300;400&family=Sacramento&family=Satisfy&family=Shadows+Into+Light&family=Space+Mono&family=Tangerine&family=Yellowtail&display=swap" rel="stylesheet">
+     <!-- for google icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -27,38 +29,46 @@
             <span class="material-icons">content_paste</span>
             <span class="material-icons">content_cut</span>
             <select class="font-family-prop" id="font-family-prop">
-                <option value="Monospace">Monospace</option>
-                <option value="Sans-Serif">Sans-Serif</option>
-                <option value="Fantasy">Fantasy</option>
-                <option value="Cursive">Cursive</option>
+                
             </select>
             <input type="number" class="font-size-prop">
             <span class="material-icons">format_bold</span>
             <span class="material-icons">format_italic</span>
             <span class="material-icons">format_underlined</span>
-            <span class="material-icons">format_align_left</span>
-            <span class="material-icons">format_align_center</span>
-            <span class="material-icons">format_align_right</span>
+            <span class="material-icons alignment" >format_align_left</span>
+            <span class="material-icons alignment" >format_align_center</span>
+            <span class="material-icons alignment" >format_align_right</span>
+            <div class="color-prop">
+                <span class="material-icons">format_color_text</span>
+                <input type="color" class="font-color-prop">
+            </div>
+
+            <div class="color-prop">
+                <span class="material-icons">format_color_fill</span>
+                <input type="color" class="BGcolor-prop">
+            </div>
             <!-- icons container -->
         </div>
         <div class="formula-actions-cont">
             <!-- // adress bar -->
 
             <input type="text" readonly class="address-bar" id="address-bar">
-            <img width="50" height="25" src="https://img.icons8.com/ios/50/formula-fx.png" alt="formula-fx"/>
+            <img width="50" height="25" src="https://img.icons8.com/ios/50/formula-fx.png" alt="formula-fx" />
             <input type="text" class="formula-bar">
             <!-- formula bar -->
         </div>
     </div>
     <div class="grid-cont">
         <!-- grid code here -->
-       
-            <div class="dummy-box"></div>  
-            <div class="row-name-container"></div> 
-          
-            <div class="cells-container">   <div class="col-name-container"></div></div>
+
+        <div class="dummy-box"></div>
+        <div class="row-name-container"></div>
+
+        <div class="cells-container">
+            <div class="col-name-container"></div>
+        </div>
     </div>
-    <div class="sheet-actions-cont"> 
+    <div class="sheet-actions-cont">
         <!-- footer section -->
         <span class="material-icons">post_add</span>
         <div class="sheets-folder-cont">
@@ -68,7 +78,8 @@
             <div class="sheets">Sheet1</div>
         </div>
     </div>
-    <script src="./script.js"></script>
+    <script src="./grid.js"></script>
+    <script src="./cell-properties.js"></script>
 </body>
 
 </html>
