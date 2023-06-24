@@ -14,7 +14,10 @@ for (let i = 0; i < rows; i++) // 100rows
             fontfamily: "sansseriff",
             fontsize: "24px",
             fontcolor: "#000000",
-            BGcolor: "#ffffff" //deafault black
+            BGcolor: "#ffffff", //deafault black
+            value: "",
+            children: new Set(),
+            formula:""
 
         }
         sheetrow.push(cellobj)
@@ -198,45 +201,48 @@ let allrowcells = document.querySelectorAll(".row-cell");
 // console.log(allrowcells.length)
 for (let i = 0; i < allrowcells.length; i++) // 100rows
 {
+   
     allrowcells[i].addEventListener("click", (e) => {
        
         let row = e.target.getAttribute("rid");
         // console.log(row)
-        let col =  e.target.getAttribute("cid");
+        let col = e.target.getAttribute("cid");
         // console.log(col)
         let cellobj = sheetDB[row][col];
-       console.log(cellobj)
+        //    console.log(cellobj)
         // apply cell properties first
         e.target.style.fontWeight = cellobj.bold ? "bold" : "normal";
         e.target.style.fontStyle = cellobj.italic ? "italic" : "normal";
         e.target.style.textDecoration = cellobj.underline ? "underline" : "none";
-        e.target.style.textAlign =cellobj.alignment ;
-        e.target.style.fontFamily =cellobj.fontfamily;
-        e.target.style.fontSize= cellobj.fontsize;
+        e.target.style.textAlign = cellobj.alignment;
+        e.target.style.fontFamily = cellobj.fontfamily;
+        e.target.style.fontSize = cellobj.fontsize;
         e.target.style.color = cellobj.fontcolor
         e.target.style.backgroundColor = cellobj.BGcolor
 
         // show cell properties in ui
         for (i = 0; i < cellpropcontainer.children.length; i++) {
-            if(i==3)
-            cellpropcontainer.children[i].value=cellobj.fontfamily;
-            if(i==4)
-            cellpropcontainer.children[i].value=parseInt(cellobj.fontsize);
-            if(i==5)
-            cellpropcontainer.children[i].style.backgroundColor = cellobj.bold ? activecolor : inactivecolor;
-            if(i==6)
-            cellpropcontainer.children[i].style.backgroundColor = cellobj.italic ? activecolor : inactivecolor;
-            if(i==7)
-            cellpropcontainer.children[i].style.backgroundColor = cellobj.underline ? activecolor : inactivecolor;
-            if(i==8 ||i==9 ||i==10) // hable alignment ui
-            setuialignment(cellobj)
-            if(i==11)
-            cellpropcontainer.children[i].childNodes[3].value=cellobj.fontcolor;
-            if(i==12)
-            cellpropcontainer.children[i].childNodes[3].value=cellobj.BGcolor
+            if (i == 3)
+                cellpropcontainer.children[i].value = cellobj.fontfamily;
+            if (i == 4)
+                cellpropcontainer.children[i].value = parseInt(cellobj.fontsize);
+            if (i == 5)
+                cellpropcontainer.children[i].style.backgroundColor = cellobj.bold ? activecolor : inactivecolor;
+            if (i == 6)
+                cellpropcontainer.children[i].style.backgroundColor = cellobj.italic ? activecolor : inactivecolor;
+            if (i == 7)
+                cellpropcontainer.children[i].style.backgroundColor = cellobj.underline ? activecolor : inactivecolor;
+            if (i == 8 || i == 9 || i == 10) // hable alignment ui
+                setuialignment(cellobj)
+            if (i == 11)
+                cellpropcontainer.children[i].childNodes[3].value = cellobj.fontcolor;
+            if (i == 12)
+                cellpropcontainer.children[i].childNodes[3].value = cellobj.BGcolor
         }
+        let formulabar = document.querySelector(".formula-bar");
+        formulabar.value=cellobj.formula;
 
-       
+
     })
 }
 
