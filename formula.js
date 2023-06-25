@@ -3,22 +3,19 @@ for (let i = 0; i < allrowcells.length; i++) // 100rows
 {
     allrowcells[i].addEventListener("blur", (e) => {
         let row = e.target.getAttribute("rid");
-        // console.log(row)
+      
         let col = e.target.getAttribute("cid");
         let cellobj = sheetDB[row][col];
-        if(e.target.innerHTML==cellobj.value) return;
-        // console.log("hello")
+        if (e.target.innerHTML == cellobj.value) return;
+      
         cellobj.value = e.target.innerHTML;
-        if(cellobj.formula)
-        {
+        if (cellobj.formula) {
 
             removechildnodestoparent(cellobj.formula);
-            cellobj.formula="";
+            cellobj.formula = "";
         }
-        // console.log(e.target.getAttribute("id"))
-        updatechildnodes(e.target.getAttribute("id"))
 
-        
+        updatechildnodes(e.target.getAttribute("id"))
     })
 }
 
@@ -38,14 +35,78 @@ formulabar.addEventListener("keydown", (e) => {
             removechildnodestoparent(cellobj.formula); // use old formula
         }
         cellobj.formula = formula; // update the formula
+        // console.log("1")
+        // update cycle detection graph
+        addchildtographcomponet(adressbar.value, formula);
+
+        // // check for cycle now
+        if (isgraphcyclic(graphcompentmatrix)) {
+            alert("your formula has cyclic dependdency");
+            removechilfromgraphcomponent(adressbar.value, formula);
+            formulabar.value = "";
+            cellobj.formula="";
+            return;
+        }
+
+
         cellobj.value = evaluateformula(formula) // update backend
-        cell.innerHTML = evaluateformula(formula) // updatefrontend
+        cell.innerHTML = evaluateformula(formula) // update frontend
         // call for childnodes
         addchildnodestoparent(formula)
         //update parent cells
         updatechildnodes(adressbar.value);
     }
 })
+function removechilfromgraphcomponent(childid, formula) {
+    //decode child
+    let childcell = document.getElementById(childid);
+    let crow = childcell.getAttribute("rid");
+    let ccol = childcell.getAttribute("cid");
+    // decode parents
+    let arrayofformula = formula.trim().split(" ");
+    for (let i = 0; i < arrayofformula.length; i++) {
+        if (arrayofformula[i].charCodeAt(0) >= 65 && arrayofformula[i].charCodeAt(0) <= 90) {
+            //    if i get A1 i need its cell and cell obj
+            console.log(arrayofformula[i])
+            let pcell = document.getElementById(arrayofformula[i]); // get the current node
+            let prow = pcell.getAttribute("rid");
+            let pcol = pcell.getAttribute("cid");
+
+            graphcompentmatrix[prow][pcol].pop();
+            // console.log(graphcompentmatrix)
+
+        }
+
+    }
+
+}
+function addchildtographcomponet(childid, formula) // frormula contaions parents // adreessbar contaions child
+{
+    //decode child
+    let childcell = document.getElementById(childid);
+    let crow = childcell.getAttribute("rid");
+    let ccol = childcell.getAttribute("cid");
+
+
+
+    // decode parents
+    let arrayofformula = formula.trim().split(" ");
+    for (let i = 0; i < arrayofformula.length; i++) {
+        if (arrayofformula[i].charCodeAt(0) >= 65 && arrayofformula[i].charCodeAt(0) <= 90) {
+            //    if i get A1 i need its cell and cell obj
+            console.log(arrayofformula[i])
+            let pcell = document.getElementById(arrayofformula[i]); // get the current node
+            let prow = pcell.getAttribute("rid");
+            let pcol = pcell.getAttribute("cid");
+
+            graphcompentmatrix[prow][pcol].push({ childrid: crow, childcid: ccol })
+            console.log(graphcompentmatrix)
+
+        }
+
+    }
+
+}
 function evaluateformula(formula) {
     let arrayofformula = formula.trim().split(" ");
     // console.log(formula)
@@ -80,6 +141,10 @@ function addchildnodestoparent(formula) {
     }
 }
 function removechildnodestoparent(formula) {
+    if(formula==="")
+    {
+        return;
+    }
     let arrayofformula = formula.trim().split(" ");
     let adressbar = document.querySelector(".address-bar");
     for (let i = 0; i < arrayofformula.length; i++) {
@@ -98,24 +163,22 @@ function removechildnodestoparent(formula) {
 
     }
 }
-function updatechildnodes(parentaddress)  {
-    if(parentaddress===null)
-    {
+function updatechildnodes(parentaddress) {
+    if (parentaddress === null) {
         return;
     }
     let pcell = document.getElementById(parentaddress)
     let prow = pcell.getAttribute("rid");
     let pcol = pcell.getAttribute("cid");
     let pcellobj = sheetDB[prow][pcol];
-    // console.log(pcellobj)
-    // for(let i=0;i<pcellobj.children.size;i++)
+
     pcellobj.children.forEach((child) => {
-        // console.log("daady"+ parentaddress + "child" + child);
+
         let childcell = document.getElementById(child)
         let childrow = childcell.getAttribute("rid");
         let childcol = childcell.getAttribute("cid");
         let childcellobj = sheetDB[childrow][childcol];
-        childcell.innerHTML=childcellobj.value=evaluateformula(childcellobj.formula);
+        childcell.innerHTML = childcellobj.value = evaluateformula(childcellobj.formula);
         updatechildnodes(child)
     });
 
