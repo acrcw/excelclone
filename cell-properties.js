@@ -4,32 +4,9 @@ let sheetDB = [];
 {
     let addsheetbtn = document.querySelector(".sheet-add-icon")
     addsheetbtn.click();     
-    // handlesheetproperties();
+
  
 }
-// for (let i = 0; i < rows; i++) // 100rows
-// {
-//     let sheetrow = [];
-//     for (let j = 0; j < cols; j++) // 26 cols
-//     {
-//         let cellobj = {
-//             bold: false,
-//             italic: false,
-//             underline: false,
-//             alignment: "left",
-//             fontfamily: "sansseriff",
-//             fontsize: "24px",
-//             fontcolor: "#000000",
-//             BGcolor: "#FFFFFF", //deafault black
-//             value: "",
-//             children: new Set(),
-//             formula:"" 
-
-//         }
-//         sheetrow.push(cellobj)
-//     }
-//     sheetDB.push(sheetrow);
-// }
 
 function setuialignment(cellobj) {
 
@@ -54,10 +31,8 @@ function setuialignment(cellobj) {
 }
 // selectors for cell properties
 let cellpropcontainer = document.querySelector(".cellprop-actions-cont");
-
 let activecolor = "#636e72";
 let inactivecolor = "#353b48";
-
 for (i = 0; i < cellpropcontainer.children.length; i++) {
     // console.log( cellpropcontainer.children.length)
 

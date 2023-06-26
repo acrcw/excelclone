@@ -5,66 +5,71 @@ addsheetbtn.addEventListener("click", (e) => {
     let sheet = document.createElement("div");
     sheet.setAttribute("class", "sheet-folder");
     let allsheetsfolder = document.querySelectorAll(".sheet-folder");
-
-
     sheet.setAttribute("id", allsheetsfolder.length);
     sheet.innerHTML = `<div class="sheet-content">Sheet ${allsheetsfolder.length + 1}</div>`
     sheetsfoldercontainer.appendChild(sheet);
-    createsheetDB();
-    creategraphcomponent();
-    handleactivesheet(sheet)
-    handlesheetremoval(sheet)
-    sheet.click();
+    createsheetDB();//.✅ creates a new sheet and append it container collectedSheets
+    creategraphcomponent();//.✅ creates a graph matrix and append it container collectedgraphcomponent
+    handleactivesheet(sheet)//✅ 
+    handlesheetremoval(sheet)//✅ 
+    sheet.click(); // go to the sheet recently created
 
 })
 function handlesheetremoval(sheet) {
     sheet.addEventListener("mousedown", (e) => {
-        if (e.button !== 2) // not right clcik
+        console.log(e)
+        if (e.button !== 2) // not right click   |2 is for right click
         {
             return;
         }
         let allsheetfolders = document.querySelectorAll(".sheet-folder");
         if (allsheetfolders.length === 1) {
-            alert("you need to have atleast one sheet");
+            alert("you need to have atleast one sheet!");
             return;
         }
         if (confirm("Are u sure?") == false) {
             return;   // collectedSheets.remove()
         }
         let sheetidx = Number(sheet.getAttribute("id"));
-        collectedSheets.splice(sheetidx, 1);
-        collectedgraphcomponent.splice(sheetidx, 1)
+        collectedSheets.splice(sheetidx, 1); //delete the sheets data
+        collectedgraphcomponent.splice(sheetidx, 1) //delete the sheets graph data❤
 
-        handlesheetUIRemoval(sheet)
+        handlesheetUIRemoval(sheet)// 🖤
         // bring sheet1 to active
         sheetDB = collectedSheets[0]
         graphcompentmatrix = collectedgraphcomponent[0];
-        handlesheetproperties();
+        handlesheetproperties(); //done
+        // i need to clcik the sheet
+        console.log(allsheetfolders[0]);
     })
 }
 function handlesheetUIRemoval(sheet) {
-    sheet.remove();
+    // let sheetid=sheet.getAttribute("id")
+    // console.log(sheetid);
+    sheet.remove(); // remove from dom
     let allsheetfolders = document.querySelectorAll(".sheet-folder");
+    console.log(allsheetfolders);
     for (let i = 0; i < allsheetfolders.length; i++) {
+        
         allsheetfolders[i].setAttribute("id", i);
         let sheetcontent = allsheetfolders[i].querySelector(".sheet-content")
         sheetcontent.innerText = `Sheet ${i + 1}`;
-        allsheetfolders.style.backgroundColor = "#2d3436"
-        allsheetfolders.style.Color = "#f5f6fa"
+        allsheetfolders[i].style.backgroundColor = "#2d3436"
+        allsheetfolders[i].style.Color = "#f5f6fa"
 
 
 
 
     }
-    allsheetfolders[0].style.backgroundColor = "#FFFFFF";
-    allsheetfolders[0].style.Color = "#000000";
+    allsheetfolders[0].click();
+    // allsheetfolders[allsheetfolders.length-1].style.Color = "#2d3436";
 }
 function handleactivesheet(sheet) {
     sheet.addEventListener("click", (event) => {
         let sheetidx = Number(sheet.getAttribute("id"));
-        handlesheetswitch(sheetidx);
-        handlesheetproperties();
-        handlesheetUI(sheet)
+        handlesheetswitch(sheetidx);//✅ retrive sheetdata and graph
+        handlesheetproperties();//✅ click evety cell of sheet to load data
+        handlesheetUI(sheet)//✅ change ui acording to active sheet
     })
 }
 function handlesheetproperties() {
@@ -122,14 +127,14 @@ function createsheetDB() {
 
 }
 function creategraphcomponent() {
-    let graphcompentmatrix = [];
+    let graphcomponentmatrix = [];
     for (let i = 0; i < rows; i++) {
         let row = []; // row to represent cell row 
         for (let j = 0; j < cols; j++) {
             // push array of object-> represnent a node with rowid colid
             row.push([]);
         }
-        graphcompentmatrix.push(row);
+        graphcomponentmatrix.push(row);
     }
-    collectedgraphcomponent.push(graphcompentmatrix);
+    collectedgraphcomponent.push(graphcomponentmatrix);
 }

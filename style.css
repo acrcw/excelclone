@@ -82,7 +82,7 @@ body {
     bottom: 0rem;
     z-index: 12;
     display: flex;
-    height: 1.6rem;
+    height: 1.5rem;
     align-items: center;
     background-color: #2d3436;
 }
@@ -96,7 +96,8 @@ body {
     display: flex;
     font-size: 1.2rem;
     font-family: 'Quicksand', sans-serif;
-    height: 1.4rem;
+    height: 1.5rem;
+    /* top:-20px; */
     align-items: center;
     text-decoration: underline;
     background-color: #2d3436;
@@ -104,8 +105,13 @@ body {
     display: relative;
 }
 .sheet-folder{
-    margin:3px;
+    margin:0.5rem;
+    height:2rem;
     cursor: pointer;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* align-content: center; */
+    /* text-align: center; */
 }
 
 
@@ -244,7 +250,7 @@ body {
 
     position: relative;
     width: 100vw;
-    height: calc(100vh - 7.6rem);
+    height: calc(100vh - 7.5rem);
     top: 0rem;
     left: 0rem;
 
