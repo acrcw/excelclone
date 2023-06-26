@@ -1,13 +1,14 @@
 //storage
+let collectedgraphcomponent=[];
 let graphcompentmatrix = [];
-for (let i = 0; i < rows; i++) {
-    let row = []; // row to represent cell row 
-    for (let j = 0; j < cols; j++) {
-        // push array of object-> represnent a node with rowid colid
-        row.push([]);
-    }
-    graphcompentmatrix.push(row);
-}
+// for (let i = 0; i < rows; i++) {
+//     let row = []; // row to represent cell row 
+//     for (let j = 0; j < cols; j++) {
+//         // push array of object-> represnent a node with rowid colid
+//         row.push([]);
+//     }
+//     graphcompentmatrix.push(row);
+// }
 function isgraphcyclic(graphcompentmatrix) {
     let Visited=[]; // node visted tracce
     let dfsVisited = []; //  stack trace

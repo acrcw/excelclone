@@ -86,22 +86,29 @@ body {
     align-items: center;
     background-color: #2d3436;
 }
-
+.sheet-add-icon
+{
+    cursor:pointer;
+}
 .sheets-folder-cont {
+    overflow: hidden;
+    overflow-x: hidden;
     display: flex;
     font-size: 1.2rem;
     font-family: 'Quicksand', sans-serif;
     height: 1.4rem;
     align-items: center;
     text-decoration: underline;
-    background-color: #f5f6fa;
+    background-color: #2d3436;
+    color:#f5f6fa;
     display: relative;
 }
-
-.sheets-folder-cont .sheets {
-    margin-left: 1rem;
-    margin-right: 1rem;
+.sheet-folder{
+    margin:3px;
+    cursor: pointer;
 }
+
+
 
 .formula-actions-cont {
     display: flex;

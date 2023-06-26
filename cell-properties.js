@@ -1,29 +1,35 @@
 //storage
+let collectedSheets=[];
 let sheetDB = [];
-
-for (let i = 0; i < rows; i++) // 100rows
 {
-    let sheetrow = [];
-    for (let j = 0; j < cols; j++) // 26 cols
-    {
-        let cellobj = {
-            bold: false,
-            italic: false,
-            underline: false,
-            alignment: "left",
-            fontfamily: "sansseriff",
-            fontsize: "24px",
-            fontcolor: "#000000",
-            BGcolor: "#FFFFFF", //deafault black
-            value: "",
-            children: new Set(),
-            formula:""
-
-        }
-        sheetrow.push(cellobj)
-    }
-    sheetDB.push(sheetrow);
+    let addsheetbtn = document.querySelector(".sheet-add-icon")
+    addsheetbtn.click();     
+    // handlesheetproperties();
+ 
 }
+// for (let i = 0; i < rows; i++) // 100rows
+// {
+//     let sheetrow = [];
+//     for (let j = 0; j < cols; j++) // 26 cols
+//     {
+//         let cellobj = {
+//             bold: false,
+//             italic: false,
+//             underline: false,
+//             alignment: "left",
+//             fontfamily: "sansseriff",
+//             fontsize: "24px",
+//             fontcolor: "#000000",
+//             BGcolor: "#FFFFFF", //deafault black
+//             value: "",
+//             children: new Set(),
+//             formula:"" 
+
+//         }
+//         sheetrow.push(cellobj)
+//     }
+//     sheetDB.push(sheetrow);
+// }
 
 function setuialignment(cellobj) {
 
@@ -241,6 +247,7 @@ for (let i = 0; i < allrowcells.length; i++) // 100rows
         }
         let formulabar = document.querySelector(".formula-bar");
         formulabar.value=cellobj.formula;
+        e.target.innerText=cellobj.value;
 
 
     })

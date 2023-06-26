@@ -56,6 +56,6 @@ let  fonts=["'  ',none","'Alegreya Sans', sans-serif","'Amatic SC', cursive","'A
         cellscontainer.appendChild(rowcontainer)
     }
 
-document.getElementById("A1").click();
+
 
 })();
