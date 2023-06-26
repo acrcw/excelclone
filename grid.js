@@ -45,6 +45,7 @@ let  fonts=["'  ',none","'Alegreya Sans', sans-serif","'Amatic SC', cursive","'A
             //for cell storege and cell link
             rowcell.setAttribute("rid",x)
             rowcell.setAttribute("cid",y)
+            rowcell.style.backgroundColor="#FFFFFF"
             rowcell.addEventListener("click", (e) => {
                 addressbar.value = e.target.getAttribute("id");
 

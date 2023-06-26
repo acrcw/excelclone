@@ -3,11 +3,11 @@ for (let i = 0; i < allrowcells.length; i++) // 100rows
 {
     allrowcells[i].addEventListener("blur", (e) => {
         let row = e.target.getAttribute("rid");
-      
+
         let col = e.target.getAttribute("cid");
         let cellobj = sheetDB[row][col];
         if (e.target.innerHTML == cellobj.value) return;
-      
+
         cellobj.value = e.target.innerHTML;
         if (cellobj.formula) {
 
@@ -21,7 +21,7 @@ for (let i = 0; i < allrowcells.length; i++) // 100rows
 
 // formula bar evaluation
 let formulabar = document.querySelector(".formula-bar");
-formulabar.addEventListener("keydown", (e) => {
+formulabar.addEventListener("keydown", async(e) => {
     let formula = formulabar.value.trim().split(" ").join(" ");
     if (e.key === "Enter" && formula) {
         let adressbar = document.querySelector(".address-bar"); // get the current address
@@ -40,11 +40,16 @@ formulabar.addEventListener("keydown", (e) => {
         addchildtographcomponet(adressbar.value, formula);
 
         // // check for cycle now
-        if (isgraphcyclic(graphcompentmatrix)) {
+        let respobj = isgraphcyclic(graphcompentmatrix)
+        if (respobj) {
             alert("your formula has cyclic dependdency");
+            // console.log(graphcompentmatrix)
+            while (confirm("Do u want to trace path")) {
+                await tracepath(graphcompentmatrix, respobj);
+            }
             removechilfromgraphcomponent(adressbar.value, formula);
             formulabar.value = "";
-            cellobj.formula="";
+            cellobj.formula = "";
             return;
         }
 
@@ -94,7 +99,7 @@ function addchildtographcomponet(childid, formula) // frormula contaions parents
     for (let i = 0; i < arrayofformula.length; i++) {
         if (arrayofformula[i].charCodeAt(0) >= 65 && arrayofformula[i].charCodeAt(0) <= 90) {
             //    if i get A1 i need its cell and cell obj
-            console.log(arrayofformula[i])
+            // console.log(arrayofformula[i])
             let pcell = document.getElementById(arrayofformula[i]); // get the current node
             let prow = pcell.getAttribute("rid");
             let pcol = pcell.getAttribute("cid");
@@ -141,8 +146,7 @@ function addchildnodestoparent(formula) {
     }
 }
 function removechildnodestoparent(formula) {
-    if(formula==="")
-    {
+    if (formula === "") {
         return;
     }
     let arrayofformula = formula.trim().split(" ");

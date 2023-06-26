@@ -14,7 +14,7 @@ for (let i = 0; i < rows; i++) // 100rows
             fontfamily: "sansseriff",
             fontsize: "24px",
             fontcolor: "#000000",
-            BGcolor: "#ffffff", //deafault black
+            BGcolor: "#FFFFFF", //deafault black
             value: "",
             children: new Set(),
             formula:""

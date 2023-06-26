@@ -29,14 +29,14 @@ function isgraphcyclic(graphcompentmatrix) {
         for (let j = 0; j < cols; j++) {
             if (Visited[i][j]===false)
             {
-                if (detectcycle(graphcompentmatrix, i, j, Visited, dfsVisited) == true) return true;
+                if (detectcycle(graphcompentmatrix, i, j, Visited, dfsVisited) == true) return {row:i,col:j};
             } 
                 
 
         }
     }
 
-    return false;
+    return null;
 }
 
 function detectcycle(graphcompentmatrix, srcrow, srccol, Visited, dfsVisited) {
