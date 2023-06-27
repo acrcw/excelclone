@@ -1,6 +1,6 @@
 //storage
 let collectedgraphcomponent=[];
-let graphcompentmatrix = [];
+let graphcomponentmatrix = [];
 // for (let i = 0; i < rows; i++) {
 //     let row = []; // row to represent cell row 
 //     for (let j = 0; j < cols; j++) {

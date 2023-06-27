@@ -79,34 +79,38 @@ body {
 
 .sheet-actions-cont {
     position: sticky;
-    bottom: 0rem;
+    bottom:0rem;
     z-index: 12;
     display: flex;
-    height: 1.5rem;
+    height: 2rem;
     align-items: center;
     background-color: #2d3436;
 }
 .sheet-add-icon
 {
+    height: 3rem;
+    display: flex;
+    align-self: center;
     cursor:pointer;
 }
+
 .sheets-folder-cont {
     overflow: hidden;
-    overflow-x: hidden;
     display: flex;
+    flex-direction: row;
     font-size: 1.2rem;
     font-family: 'Quicksand', sans-serif;
     height: 1.5rem;
     /* top:-20px; */
-    align-items: center;
+    /* align-items: center; */
     text-decoration: underline;
     background-color: #2d3436;
     color:#f5f6fa;
     display: relative;
 }
 .sheet-folder{
-    margin:0.5rem;
-    height:2rem;
+    margin-left:0.5rem;
+    height:1rem;
     cursor: pointer;
     /* justify-content: center; */
     /* align-items: center; */
@@ -167,7 +171,7 @@ body {
 
 
 
-    height: 1.8rem;
+    height: 2rem;
     width: 2rem;
 }
 
@@ -250,7 +254,7 @@ body {
 
     position: relative;
     width: 100vw;
-    height: calc(100vh - 6.7rem);
+    height: calc(100vh - 18vh);
     top: 0rem;
     left: 0rem;
 
@@ -264,13 +268,9 @@ body {
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 0.8rem;
+    top: 0rem;
     left: 2rem;
-
-
-
     background-color: #f5f6fa;
-
 }
 
 .cells-container .row-cell {

@@ -8,6 +8,7 @@ addsheetbtn.addEventListener("click", (e) => {
     sheet.setAttribute("id", allsheetsfolder.length);
     sheet.innerHTML = `<div class="sheet-content">Sheet ${allsheetsfolder.length + 1}</div>`
     sheetsfoldercontainer.appendChild(sheet);
+    sheet.scrollIntoView();
     createsheetDB();//.✅ creates a new sheet and append it container collectedSheets
     creategraphcomponent();//.✅ creates a graph matrix and append it container collectedgraphcomponent
     handleactivesheet(sheet)//✅ 

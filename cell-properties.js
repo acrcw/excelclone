@@ -145,7 +145,7 @@ for (i = 0; i < cellpropcontainer.children.length; i++) {
             }
         })
     }
-    else
+    else if(i==11 || i==12)
         cellpropcontainer.children[i].childNodes[3].addEventListener("change", (e) => {
 
             if (e.target.classList[0] === "font-color-prop") // set font color
