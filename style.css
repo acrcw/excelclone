@@ -255,7 +255,7 @@ body {
 
     position: relative;
     width: 100vw;
-    height: calc(80vh);
+    height: calc(100vh - 20vh);
     top: 0rem;
     left: 0rem;
 
