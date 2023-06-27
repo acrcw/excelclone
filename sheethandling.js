@@ -110,7 +110,7 @@ function createsheetDB() {
                 underline: false,
                 alignment: "left",
                 fontfamily: "sansseriff",
-                fontsize: "24px",
+                fontsize: "1rem",
                 fontcolor: "#000000",
                 BGcolor: "#FFFFFF", //deafault black
                 value: "",

@@ -43,17 +43,17 @@ for (i = 0; i < cellpropcontainer.children.length; i++) {
             // if(e.target.classList[0].value==="material icons")
 
             if (e.target.classList[0] === "material-icons") {
-                if (e.target.innerHTML === "content_copy") {
+                // if (e.target.innerHTML === "content_copy") {
 
 
-                }
-                else if (e.target.innerHTML === "content_paste") {
+                // }
+                // else if (e.target.innerHTML === "content_paste") {
 
-                }
-                else if (e.target.innerHTML === "content_cut") {
+                // }
+                // else if (e.target.innerHTML === "content_cut") {
 
-                }
-                else if (e.target.innerHTML === "format_bold") {
+                // }
+                if (e.target.innerHTML === "format_bold") {
                     let boxid = document.getElementById("address-bar").value;
                     let cell = document.getElementById(boxid); // got the cell
                     let row = cell.getAttribute("rid");
@@ -184,7 +184,7 @@ for (let i = 0; i < allrowcells.length; i++) // 100rows
 {
    
     allrowcells[i].addEventListener("click", (e) => {
-       
+    //    console.log("hello")
         let row = e.target.getAttribute("rid");
         // console.log(row)
         let col = e.target.getAttribute("cid");
@@ -195,7 +195,7 @@ for (let i = 0; i < allrowcells.length; i++) // 100rows
         e.target.style.fontWeight = cellobj.bold ? "bold" : "normal";
         e.target.style.fontStyle = cellobj.italic ? "italic" : "normal";
         e.target.style.textDecoration = cellobj.underline ? "underline" : "none";
-        e.target.style.textAlign = cellobj.alignment;
+        // e.target.style.textAlign = cellobj.alignment;
         e.target.style.fontFamily = cellobj.fontfamily;
         e.target.style.fontSize = cellobj.fontsize;
         e.target.style.color = cellobj.fontcolor
@@ -222,9 +222,7 @@ for (let i = 0; i < allrowcells.length; i++) // 100rows
         }
         let formulabar = document.querySelector(".formula-bar");
         formulabar.value=cellobj.formula;
-        e.target.innerText=cellobj.value;
-
-
+        // e.target.innerText=cellobj.value;
     })
 }
 
