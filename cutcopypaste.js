@@ -49,21 +49,22 @@ let cutbtn = document.querySelector(".cut")
 let pastebtn = document.querySelector(".paste")
 let copydata = [];
 copybtn.addEventListener("click", (e) => {
+    if (rangestorage.length < 2) return
     copydata.splice(0, copydata.length);
-    let strow=rangestorage[0][0]
-    let stcol=rangestorage[0][1]
-    let endrow=rangestorage[1][0]
-    let endcol=rangestorage[1][1]
+    let strow = rangestorage[0][0]
+    let stcol = rangestorage[0][1]
+    let endrow = rangestorage[1][0]
+    let endcol = rangestorage[1][1]
     for (let i = strow; i <= endrow; i++) {
         let copyrow = [];
         for (let j = stcol; j <= endcol; j++) {
-            copyrow.push(sheetDB[i][j]);
+            copyrow.push(JSON.parse(JSON.stringify(sheetDB[i][j])));
         }
         copydata.push(copyrow);
     }
     removecellborders()
     // rangestorage.splice(0,rangestorage.length);
-    console.log(rangestorage)
+    console.log(copydata)
 
 
 })
@@ -72,32 +73,29 @@ pastebtn.addEventListener("click", (e) => {
     if (rangestorage.length < 2) return
     let boxid = document.getElementById("address-bar").value;
     let startcell = document.getElementById(boxid);
-    console.log(startcell)
+    // console.log(startcell)
     let startcellrow = startcell.getAttribute("rid");
     let startcellcol = startcell.getAttribute("cid");
-    let rowdiff = eval(rangestorage[1][0] - rangestorage[0][0] ) 
-    let coldiff = eval(rangestorage[1][1] - rangestorage[0][1] )
+    let rowdiff = eval(rangestorage[1][0] - rangestorage[0][0])
+    let coldiff = eval(rangestorage[1][1] - rangestorage[0][1])
     // let x=0;
     // console.log(rowdiff)
     // console.log(coldiff)
-    let r=0;
-     let m = startcellrow
-     while( m <= eval(startcellrow + rowdiff)) 
-    {
+    let r = 0;
+    let m = startcellrow
+    while (m <= eval(startcellrow + rowdiff)) {
         // let y=0;
         let n = startcellcol;
-        let c=0;
-        while(n <= (startcellcol + coldiff)){
-           
+        let c = 0;
+        while (n <= (startcellcol + coldiff)) {
+
             let cell = document.querySelector(`.row-cell[rid="${m}"][cid="${n}"]`);
-            if (cell==null || copydata[r]==undefined ||copydata[r][c]==undefined || sheetDB[m]==undefined || sheetDB[m][n]==undefined) 
-            {
+            if (cell == null || copydata[r] == undefined || copydata[r][c] == undefined || sheetDB[m] == undefined || sheetDB[m][n] == undefined) {
                 n++;
                 c++;
                 continue;
             }
-            else
-            {
+            else {
                 sheetDB[m][n].value = copydata[r][c].value;
                 sheetDB[m][n].bold = copydata[r][c].bold;
                 sheetDB[m][n].italic = copydata[r][c].italic;
@@ -110,7 +108,7 @@ pastebtn.addEventListener("click", (e) => {
                 cell.innerHTML = sheetDB[r][c].value
                 cell.click();
             }
-           
+
             // console.log(" m ",m , " n ",n )
             n++;
             c++;
@@ -122,4 +120,36 @@ pastebtn.addEventListener("click", (e) => {
     // copydata.length=0;
 
 
+})
+
+cutbtn.addEventListener("click", (e) => {
+
+    if (rangestorage.length < 2) return
+    copybtn.click();
+    console.log(rangestorage)
+    let strow = rangestorage[0][0]
+    let stcol = rangestorage[0][1]
+    let endrow = rangestorage[1][0]
+    let endcol = rangestorage[1][1]
+    for (let i = strow; i <= endrow; i++) {
+
+        for (let j = stcol; j <= endcol; j++) {
+            let cell = document.querySelector(`.row-cell[rid="${i}"][cid="${j}"]`);
+            // console.log(sheetDB[i][j])
+            sheetDB[i][j].value=""
+            sheetDB[i][j].bold = false
+            sheetDB[i][j].italic = false
+            sheetDB[i][j].underline = false
+            sheetDB[i][j].fontfamily = "sansseriff";
+            sheetDB[i][j].fontcolor = "#000000"
+            sheetDB[i][j].BGcolor = "#FFFFFF"
+            sheetDB[i][j].alignment = "left"
+            sheetDB[i][j].fontsize = "1rem"
+            cell.click();
+            cell.innerHTML ="";
+
+        }
+
+    }
+    removecellborders();
 })
