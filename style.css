@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content: center; */
+
     height: 2rem;
     background-color: #2d3436;
 }
@@ -31,7 +31,7 @@ body {
 }
 
 .cellprop-actions-cont input {
-    /* margin-top: 1rem; */
+
     margin-right: 1rem;
     margin-left: 1rem;
     width: 3rem;
@@ -50,7 +50,7 @@ body {
 }
 
 .cellprop-actions-cont .material-icons {
-    cursor:pointer;
+    cursor: pointer;
     margin: 1rem;
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
@@ -78,44 +78,46 @@ body {
 }
 
 .sheet-actions-cont {
-    position: sticky;
-    bottom:0rem;
+    position: fixed;
+    bottom: 0rem;
+    height: 2rem;
+    width: 100vw;
     z-index: 12;
     display: flex;
-    height: 2rem;
-    align-items: center;
+
+
     background-color: #2d3436;
 }
-.sheet-add-icon
-{
+
+.sheet-add-icon {
     height: 3rem;
     display: flex;
     align-self: center;
-    cursor:pointer;
+    cursor: pointer;
+
 }
 
 .sheets-folder-cont {
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: 'Quicksand', sans-serif;
-    height: 1.5rem;
-    /* top:-20px; */
-    /* align-items: center; */
-    text-decoration: underline;
-    background-color: #2d3436;
-    color:#f5f6fa;
-    display: relative;
+    height: 2rem;
+
+    align-items: center;
+    position: relative;
+    left: 3rem;
+
+    color: #f5f6fa;
 }
-.sheet-folder{
-    margin-left:0.5rem;
-    height:1rem;
+
+.sheet-folder {
+
+    padding-left: 1rem;
+    padding-right: 1rem;
     cursor: pointer;
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* align-content: center; */
-    /* text-align: center; */
+
 }
 
 
@@ -128,7 +130,7 @@ body {
 
 .formula-actions-cont .address-bar {
 
-    /* margin-top: 2px; */
+
     margin-left: 1rem;
     height: 1.5rem;
     width: 5rem;
@@ -142,13 +144,13 @@ body {
     margin-top: 2px;
     margin-left: 7px;
     margin-right: 2px;
-    /* size: 2rem; */
+
     font-size: 2rem;
 }
 
 .formula-actions-cont .formula-bar {
 
-    /* margin-top: 2px; */
+
     margin-left: 1rem;
     margin-right: 1rem;
     font-size: 1.2rem;
@@ -162,7 +164,7 @@ body {
 .dummy-box {
 
     background-color: #f5f6fa;
-    /* background-color: red; */
+
 
     position: fixed;
     top: 6rem;
@@ -196,8 +198,7 @@ body {
     font-size: 1rem;
     color: #a4b0be;
     padding-top: 0.4rem;
-    /* align-items: center; */
-    /* justify-self: center; */
+
     background-color: #f5f6fa;
     height: 2rem;
     width: 2rem;
@@ -235,12 +236,12 @@ body {
     width: 6rem;
     height: 2rem;
     text-align: center;
-    /* text-justify: distribute-all-lines; */
-    padding-top: 0.5rem;
-    /* align-items: center; */
+
+    padding-top: 0rem;
+
     font-size: 1rem;
     color: #a4b0be;
-    /* height: 10px; */
+
 
     background-color: #f5f6fa;
 
@@ -249,12 +250,12 @@ body {
 
 .grid-cont {
 
-    /* height: calc(100vh - 2.4rem); */
+
     overflow: scroll;
 
     position: relative;
     width: 100vw;
-    height: calc(100vh - 18vh);
+    height: calc(82vh);
     top: 0rem;
     left: 0rem;
 
@@ -274,17 +275,16 @@ body {
 }
 
 .cells-container .row-cell {
-    /* its cell itself */
+
     width: 6rem;
     height: 2rem;
-    /* text-align: center; */
-    /* font-family: 'Quicksand', sans-serif; */
+
     color: #2d3436;
 
     outline: none;
-    /* text-align: justify; */
+
     font-size: 24x;
-    background-color:transparent;
+    background-color: transparent;
     border: 0.1px solid rgb(206, 214, 224);
 }
 
@@ -293,25 +293,26 @@ body {
 
     background-color: #f5f6fa;
 
-    /* text-align: center; */
+
     display: flex;
     flex-direction: row;
-    /* font-size: 5px; */
+
     color: #a4b0be;
     height: 2rem;
-    /* padding-left: 0; */
+
     background-color: #f5f6fa;
 
 }
-.color-prop
-{
+
+.color-prop {
     position: relative;
 }
-.color-prop >input{
+
+.color-prop>input {
     cursor: pointer;
     opacity: 0;
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     height: 100%;
 }
