@@ -176,6 +176,12 @@ function updatechildnodes(parentaddress) {
     let pcol = pcell.getAttribute("cid");
     let pcellobj = sheetDB[prow][pcol];
 
+    console.log(pcellobj)
+
+
+
+
+
     pcellobj.children.forEach((child) => {
 
         let childcell = document.getElementById(child)

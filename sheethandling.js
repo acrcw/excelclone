@@ -114,7 +114,7 @@ function createsheetDB() {
                 fontsize: "1rem",
                 fontcolor: "#000000",
                 BGcolor: "#FFFFFF", //deafault black
-                value: "",
+                value:"",
                 children: new Set(),
                 formula: ""
 

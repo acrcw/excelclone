@@ -222,7 +222,7 @@ for (let i = 0; i < allrowcells.length; i++) // 100rows
         }
         let formulabar = document.querySelector(".formula-bar");
         formulabar.value=cellobj.formula;
-        // e.target.innerText=cellobj.value;
+        e.target.innerText=cellobj.value;
     })
 }
 

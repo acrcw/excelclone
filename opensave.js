@@ -28,8 +28,8 @@ openbtn.addEventListener("click",(e)=>{
         //sheetdb graphdomponenet
         sheetDB=sheetdata[0];
         graphcomponentmatrix=sheetdata[1];
-        collectedSheets[collectedSheets.length-1]=sheetDB;
-        collectedgraphcomponent[collectedgraphcomponent.length-1]=graphcomponentmatrix;
+        collectedSheets.push(sheetDB);
+        collectedgraphcomponent.push(graphcomponentmatrix);
         handlesheetproperties();
           
         })
